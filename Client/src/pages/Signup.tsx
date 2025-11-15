@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import api from '../lib/api';
 import Navbar from '../components/Navbar';
 
@@ -168,7 +168,7 @@ export default function Signup({
               <div className="relative">
                 <input type={showSignupPassword ? 'text' : 'password'} id="signup-password" required className="w-full px-4 py-3 pr-12 border rounded-lg focus:outline-none focus:ring-2 transition-all" style={{ backgroundColor: COLORS.navy.darkest, borderColor: COLORS.border, color: COLORS.white }} placeholder="••••••••" />
                 <button type="button" onClick={() => setShowSignupPassword(!showSignupPassword)} className="absolute right-3 top-1/2 transform -translate-y-1/2 transition-colors" style={{ color: COLORS.muted }}>
-                  {showSignupPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  {showSignupPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                 </button>
               </div>
             </div>

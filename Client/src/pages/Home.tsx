@@ -1,4 +1,4 @@
-import { Users, CheckSquare, BarChart3, Code, Lightbulb, Trophy } from 'lucide-react';
+import { FaUsers, FaRegCheckSquare, FaChartBar, FaCode, FaRegLightbulb, FaTrophy } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useEffect, useMemo, useState } from 'react';
@@ -151,9 +151,9 @@ export default function Home({
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: <Code className="text-white" size={28} />, title: 'Technical Workshops', description: 'Regular hands-on workshops covering cutting-edge technologies, programming languages, and industry best practices to enhance your technical skills.' },
-              { icon: <Lightbulb className="text-white" size={28} />, title: 'Innovation Projects', description: 'Collaborate on real-world projects, hackathons, and competitions that challenge your creativity and problem-solving abilities.' },
-              { icon: <Trophy className="text-white" size={28} />, title: 'Competitive Programming', description: 'Join our competitive programming sessions, participate in coding contests, and sharpen your algorithmic thinking with fellow enthusiasts.' },
+              { icon: <FaCode className="text-white" size={28} />, title: 'Technical Workshops', description: 'Regular hands-on workshops covering cutting-edge technologies, programming languages, and industry best practices to enhance your technical skills.' },
+              { icon: <FaRegLightbulb className="text-white" size={28} />, title: 'Innovation Projects', description: 'Collaborate on real-world projects, hackathons, and competitions that challenge your creativity and problem-solving abilities.' },
+              { icon: <FaTrophy className="text-white" size={28} />, title: 'Competitive Programming', description: 'Join our competitive programming sessions, participate in coding contests, and sharpen your algorithmic thinking with fellow enthusiasts.' },
             ].map((feature, idx) => (
               <div key={idx} className="border rounded-xl p-8 hover:border-blue-400/50 transition-all transform hover:scale-105 hover:shadow-xl" style={{ backgroundColor: COLORS.navy.darkest, borderColor: COLORS.border }}>
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg" style={{ backgroundColor: COLORS.primary }}>
@@ -180,9 +180,9 @@ export default function Home({
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: <Users className="text-white" size={28} />, title: 'Hierarchical Management', description: 'Core members assign to department heads, with built-in oversight and workflow control.' },
-              { icon: <CheckSquare className="text-white" size={28} />, title: 'Smart Task Tracking', description: 'Accept, reject, or complete tasks with built-in deadline monitoring and status updates.' },
-              { icon: <BarChart3 className="text-white" size={28} />, title: 'Performance Insights', description: 'Real-time analytics and progress tracking for better team performance.' },
+              { icon: <FaUsers className="text-white" size={28} />, title: 'Hierarchical Management', description: 'Core members assign to department heads, with built-in oversight and workflow control.' },
+              { icon: <FaRegCheckSquare className="text-white" size={28} />, title: 'Smart Task Tracking', description: 'Accept, reject, or complete tasks with built-in deadline monitoring and status updates.' },
+              { icon: <FaChartBar className="text-white" size={28} />, title: 'Performance Insights', description: 'Real-time analytics and progress tracking for better team performance.' },
             ].map((feature, idx) => (
               <div key={idx} className="border rounded-xl p-8 hover:border-blue-400/50 transition-all transform hover:scale-105 hover:shadow-xl" style={{ backgroundColor: COLORS.navy.darker, borderColor: COLORS.border }}>
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg" style={{ backgroundColor: COLORS.primary }}>

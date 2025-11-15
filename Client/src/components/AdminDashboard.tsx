@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../lib/api';
-import { User, Plus, ListTodo, Settings, LogOut, Calendar, RefreshCw, Camera, Users, Check, X as XIcon, Phone, Moon, Sun } from 'lucide-react';
-
+import { FaUser, FaPlus, FaListUl, FaRegCalendarAlt as Calendar, FaRedo as RefreshCw, FaCamera, FaUsers, FaCheck, FaTimes as XIcon, FaPhone as Phone, FaRegMoon as Moon, FaRegSun as Sun } from 'react-icons/fa';
+import { IoSettingsOutline as Settings, IoLogOutOutline as LogOut} from 'react-icons/io5';
 interface AdminDashboardProps {
   onLogout: () => void;
   userRole: 'core-member' | 'head-of-dept';
@@ -414,13 +414,13 @@ export default function AdminDashboard({ onLogout, userRole }: AdminDashboardPro
   ];
 
   const sidebarItems = [
-    { id: 'create-task' as AdminSection, label: 'Create Task', icon: Plus },
-    { id: 'manage-tasks' as AdminSection, label: 'Manage Tasks', icon: ListTodo },
-    { id: 'total-tasks' as AdminSection, label: 'Total Tasks', icon: Check },
-    { id: 'available-tasks' as AdminSection, label: 'Available Tasks', icon: ListTodo },
+    { id: 'create-task' as AdminSection, label: 'Create Task', icon: FaPlus },
+    { id: 'manage-tasks' as AdminSection, label: 'Manage Tasks', icon: FaListUl },
+    { id: 'total-tasks' as AdminSection, label: 'Total Tasks', icon: FaCheck },
+    { id: 'available-tasks' as AdminSection, label: 'Available Tasks', icon: FaListUl },
     { id: 'current-tasks' as AdminSection, label: 'Current Tasks', icon: Calendar },
-    { id: 'member-requests' as AdminSection, label: 'Member Requests', icon: Users },
-    { id: 'profile' as AdminSection, label: 'My Profile', icon: User },
+    { id: 'member-requests' as AdminSection, label: 'Member Requests', icon: FaUsers },
+    { id: 'profile' as AdminSection, label: 'My Profile', icon: FaUser },
     { id: 'settings' as AdminSection, label: 'Settings', icon: Settings },
   ];
 
@@ -751,7 +751,7 @@ export default function AdminDashboard({ onLogout, userRole }: AdminDashboardPro
                         <span>{request.phoneNumber}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-400 group-hover:text-cyan-300 transition-colors">
-                        <User size={16} className="mr-3 text-blue-400" />
+                        <FaUser size={16} className="mr-3 text-blue-400" />
                         <span>Applied as: {getRoleDisplayName(request.role)}</span>
                       </div>
                     </div>
@@ -773,7 +773,7 @@ export default function AdminDashboard({ onLogout, userRole }: AdminDashboardPro
                         onClick={() => handleMemberRequest(request.id, 'approve')}
                         className="flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg font-medium hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-500/25"
                       >
-                        <Check size={16} className="mr-2" />
+                        <FaCheck size={16} className="mr-2" />
                         Approve Request
                       </button>
                       <button
@@ -791,7 +791,7 @@ export default function AdminDashboard({ onLogout, userRole }: AdminDashboardPro
 
             {memberRequests.length === 0 && (
               <div className="text-center py-12">
-                <Users size={64} className="mx-auto text-gray-500 mb-4" />
+                <FaUsers size={64} className="mx-auto text-gray-500 mb-4" />
                 <h3 className="text-xl font-semibold text-gray-400 mb-2">No Member Requests</h3>
                 <p className="text-gray-500">All member requests have been processed.</p>
               </div>
@@ -821,7 +821,7 @@ export default function AdminDashboard({ onLogout, userRole }: AdminDashboardPro
                   )}
                 </div>
                 <label className="absolute bottom-0 right-4 bg-cyan-500 hover:bg-cyan-600 text-white p-1 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110 shadow-lg">
-                  <Camera size={14} />
+                  <FaCamera size={14} />
                   <input
                     type="file"
                     accept="image/*"

@@ -1,0 +1,4 @@
+PORT=7001
+MONGO_URI="mongodb://localhost:27017/"
+JWT_SECRET="mysecret"
+CLIENT_URL="http://localhost:5173"

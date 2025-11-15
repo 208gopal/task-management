@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { IoMenuOutline, IoCloseOutline } from 'react-icons/io5';
 
 const acmLogo = "https://bvcoe.acm.org/static/media/ACM-BVP-logo.6425d80f.png";
 
@@ -103,7 +103,7 @@ export default function Navbar({
           </div>
 
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 rounded-lg transition-colors hover:bg-blue-900/20" style={{ color: COLORS.white }}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <IoCloseOutline size={24} /> : <IoMenuOutline size={24} />}
           </button>
         </div>
 

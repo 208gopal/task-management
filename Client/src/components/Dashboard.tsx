@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../lib/api';
-import { User, CheckSquare, ListTodo, Clock, Settings, LogOut, XCircle, ArrowLeft, Moon, Sun, Camera } from 'lucide-react';
+import { FaUser, FaRegCheckSquare, FaListUl, FaRegClock, FaRegWindowClose, FaArrowLeft, FaCamera, FaRegMoon, FaRegSun } from 'react-icons/fa';
+import { IoSettingsOutline, IoLogOutOutline } from 'react-icons/io5';
 const acmLogo = "https://bvcoe.acm.org/static/media/ACM-BVP-logo.6425d80f.png";
 
 interface DashboardProps {
@@ -98,11 +99,11 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
 
   const sidebarItems = [
     
-    { id: 'total-tasks' as DashboardSection, label: 'Total Tasks', icon: CheckSquare },
-    { id: 'available-tasks' as DashboardSection, label: 'Available Tasks', icon: ListTodo },
-    { id: 'current-tasks' as DashboardSection, label: 'Current Tasks', icon: Clock },
-    { id: 'profile' as DashboardSection, label: 'My Profile', icon: User },
-    { id: 'settings' as DashboardSection, label: 'Settings', icon: Settings },
+    { id: 'total-tasks' as DashboardSection, label: 'Total Tasks', icon: FaRegCheckSquare },
+    { id: 'available-tasks' as DashboardSection, label: 'Available Tasks', icon: FaListUl },
+    { id: 'current-tasks' as DashboardSection, label: 'Current Tasks', icon: FaRegClock },
+    { id: 'profile' as DashboardSection, label: 'My Profile', icon: FaUser },
+    { id: 'settings' as DashboardSection, label: 'Settings', icon: IoSettingsOutline },
     
   ];
 
@@ -260,7 +261,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
                   )}
                 </div>
                 <label className="absolute bottom-0 right-4 bg-cyan-500 hover:bg-cyan-600 text-white p-1 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110 shadow-lg">
-                  <Camera size={14} />
+                  <FaCamera size={14} />
                   <input
                     type="file"
                     accept="image/*"
@@ -407,7 +408,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
                   </div>
                   <p className={`${mutedTextClass} mb-3`}>{task.description}</p>
                   <div className={`flex items-center text-sm ${mutedTextClass}`}>
-                    <Clock size={16} className="mr-2" />
+                    <FaRegClock size={16} className="mr-2" />
                     <span>Deadline: {new Date(task.deadline).toLocaleDateString()}</span>
                   </div>
                   {task.status === 'rejected' && task.rejectionReason && (
@@ -441,7 +442,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
                   <h3 className={`text-2xl font-semibold ${textClass} mb-3`}>{task.title}</h3>
                   <p className={`${mutedTextClass} text-lg mb-3`}>{task.description}</p>
                   <div className={`flex items-center text-sm ${mutedTextClass} mb-4`}>
-                    <Clock size={16} className="mr-2" />
+                    <FaRegClock size={16} className="mr-2" />
                     <span>Deadline: {new Date(task.deadline).toLocaleDateString()}</span>
                   </div>
                   <div className="flex gap-3">
@@ -482,7 +483,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
                   <h3 className={`text-xl font-semibold ${textClass} mb-3`}>{task.title}</h3>
                   <p className={`${mutedTextClass} mb-3`}>{task.description}</p>
                   <div className={`flex items-center text-sm ${mutedTextClass} mb-4`}>
-                    <Clock size={16} className="mr-2" />
+                    <FaRegClock size={16} className="mr-2" />
                     <span>Deadline: {new Date(task.deadline).toLocaleDateString()}</span>
                   </div>
                   <button
@@ -598,7 +599,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
             onClick={() => setIsDarkMode(!isDarkMode)}
             className={`w-full flex items-center px-4 py-3 ${mutedTextClass} hover:${textClass} rounded-lg transition-all duration-300 transform hover:scale-105`}
           >
-            {isDarkMode ? <Sun size={20} className="mr-3" /> : <Moon size={20} className="mr-3" />}
+            {isDarkMode ? <FaRegSun size={20} className="mr-3" /> : <FaRegMoon size={20} className="mr-3" />}
             <span className="font-medium">{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
           </button>
 
@@ -606,7 +607,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
             onClick={onLogout}
             className="w-full flex items-center px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
-            <LogOut size={20} className="mr-3" />
+            <IoLogOutOutline size={20} className="mr-3" />
             <span className="font-medium">Logout</span>
           </button>
         </div>
@@ -624,11 +625,11 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
                 onClick={() => setShowRejectModal(false)}
                 className={`mr-4 p-2 hover:${inputBgClass} rounded-lg transition-all duration-200 group`}
               >
-                <ArrowLeft size={24} className={mutedTextClass} />
+                <FaArrowLeft size={24} className={mutedTextClass} />
               </button>
               <div className="flex items-center">
                 <div className="bg-red-500/20 p-3 rounded-xl mr-4">
-                  <XCircle size={32} className="text-red-400" />
+                  <FaRegWindowClose size={32} className="text-red-400" />
                 </div>
                 <div>
                   <h2 className={`text-3xl font-bold ${textClass}`}>Reject Task</h2>
@@ -702,7 +703,7 @@ export default function Dashboard({ onLogout, userRole, userEmail }: DashboardPr
       {showConfirmation && (
         <div className="fixed top-4 right-4 z-50 animate-slide-in-right">
           <div className="bg-green-500 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3">
-            <CheckSquare size={24} />
+            <FaRegCheckSquare size={24} />
             <span className="font-medium">{confirmationMessage}</span>
           </div>
         </div>
