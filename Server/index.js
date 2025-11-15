@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+
 const authRoutes = require('./Router/auth');
 const userRoutes = require('./Router/user_route');
 const taskRoutes = require('./Router/task_route');
@@ -13,7 +15,7 @@ const app = express();
 
 // Hard-set CORS headers and short-circuit OPTIONS preflights before any other middleware
 app.use((req, res, next) => {
-  const origin = req.headers.origin || 'http://localhost:5173';
+  const origin = req.headers.origin || CLIENT_URL;
   res.setHeader('Access-Control-Allow-Origin', origin);
   res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -28,7 +30,7 @@ app.use((req, res, next) => {
 
 // =================== CORS ===================
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: CLIENT_URL,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -38,7 +40,7 @@ app.use(cors(corsOptions));
 
 // Extra safety: ensure CORS headers on every response and handle preflight
 app.use((req, res, next) => {
-  const origin = req.headers.origin || 'http://localhost:5173';
+  const origin = req.headers.origin || CLIENT_URL;
   res.header('Access-Control-Allow-Origin', origin);
   res.header('Vary', 'Origin');
   res.header('Access-Control-Allow-Credentials', 'true');
